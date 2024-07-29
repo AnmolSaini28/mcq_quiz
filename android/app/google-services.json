@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "238353162029",
+    "project_id": "mcq-quiz-app-b205f",
+    "storage_bucket": "mcq-quiz-app-b205f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238353162029:android:04d8cd03daf830e6f27da4",
+        "android_client_info": {
+          "package_name": "com.example.mcq_quiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQpfBQ9diwzfXr6G7RZjjVBmAnTZse4i0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
