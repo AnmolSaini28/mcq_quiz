@@ -1,16 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class MCQFormScreen extends StatefulWidget {
-  final String? mcqId;
-
-  const MCQFormScreen({super.key, this.mcqId});
+class AddMCQFormScreen extends StatefulWidget {
+  const AddMCQFormScreen({super.key});
 
   @override
-  _MCQFormScreenState createState() => _MCQFormScreenState();
+  _AddMCQFormScreenState createState() => _AddMCQFormScreenState();
 }
 
-class _MCQFormScreenState extends State<MCQFormScreen> {
+class _AddMCQFormScreenState extends State<AddMCQFormScreen> {
   final _formKey = GlobalKey<FormState>();
   late TextEditingController _questionController;
   late List<TextEditingController> _optionControllers;
@@ -21,29 +19,6 @@ class _MCQFormScreenState extends State<MCQFormScreen> {
     super.initState();
     _questionController = TextEditingController();
     _optionControllers = List.generate(4, (index) => TextEditingController());
-
-    if (widget.mcqId != null) {
-      _loadMCQ();
-    }
-  }
-
-  Future<void> _loadMCQ() async {
-    try {
-      final doc = await FirebaseFirestore.instance.collection('mcqs').doc(widget.mcqId).get();
-      final data = doc.data();
-      if (data != null) {
-        setState(() {
-          _questionController.text = data['question'];
-          _optionControllers.asMap().forEach((index, controller) {
-            controller.text = data['options'][index];
-          });
-          _correctAnswerIndex = data['correctAnswerIndex'];
-        });
-      }
-    } catch (e) {
-      // Handle any errors
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Error loading MCQ')));
-    }
   }
 
   Future<void> _saveMCQ() async {
@@ -55,19 +30,11 @@ class _MCQFormScreenState extends State<MCQFormScreen> {
       };
 
       try {
-        if (widget.mcqId == null) {
-          await FirebaseFirestore.instance.collection('mcqs').add(mcq);
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('MCQ added successfully')));
-          print('MCQ added: $mcq');
-        } else {
-          await FirebaseFirestore.instance.collection('mcqs').doc(widget.mcqId).update(mcq);
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('MCQ updated successfully')));
-          print('MCQ updated: $mcq');
-        }
+        await FirebaseFirestore.instance.collection('mcqs').add(mcq);
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('MCQ added successfully')));
         Navigator.pop(context);
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error saving MCQ: $e')));
-        print('Error saving MCQ: $e');
       }
     }
   }
@@ -89,7 +56,7 @@ class _MCQFormScreenState extends State<MCQFormScreen> {
         foregroundColor: Colors.black,
         backgroundColor: Colors.blue,
         elevation: 5,
-        title: Text(widget.mcqId == null ? 'Add MCQ' : 'Edit MCQ', style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w700),),
+        title: const Text('Add MCQ', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700)),
         actions: [
           IconButton(
             icon: const Icon(Icons.save),
