@@ -74,23 +74,6 @@ Firebase Authentication for user login and personalized quiz history (if impleme
 
 
 
-## Screenshots
-
-![App Screenshot](https://drive.google.com/file/d/1G3wMiJRTDi49mm-E1YcnIb_wJw-YFzle/view?usp=drive_link)
-
-![App Screenshot](https://drive.google.com/file/d/1PzmHy3muwXrQ6tlcDSsB9mhvvX89otzk/view?usp=drive_link)
-
-![App Screenshot](https://drive.google.com/file/d/1CCeyPWxsZ8yJXugm_bVhkxbc3oyjfP-B/view?usp=drive_link)
-
-![App Screenshot](https://drive.google.com/file/d/1xmY-uEP2Rv3H11w3kpC07qwACBu9LORz/view?usp=drive_link)
-
-![App Screenshot](https://drive.google.com/file/d/11wMvL2u589bpj8A8NKqyWGr26QizwrsV/view?usp=drive_link)
-
-![App Screenshot](https://drive.google.com/file/d/1Zs3neAtcreD3_QNB3qyBEMupBqbwhz9o/view?usp=drive_link)
-
-
-
-
 ## Tech Stack
 
 **Front-End:** Dart, Flutter
