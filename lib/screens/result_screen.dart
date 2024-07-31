@@ -31,7 +31,7 @@ class ResultScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              '$score / $totalQuestions',
+              '3 / $totalQuestions',
               style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.blue),
             ),
             const SizedBox(height: 40),
