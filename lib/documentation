@@ -1,0 +1,151 @@
+/*
+
+Project Setup Instructions
+Prerequisites
+    -> Flutter SDK: Ensure you have Flutter installed. Follow the Flutter installation guide for your operating system.
+    -> Firebase Account: Create a Firebase account and project.
+
+Clone the Repository
+    -> git clone https://github.com/yourusername/mcq_quiz_app.git
+    -> cd mcq_quiz_app
+
+Install Dependencies
+   -> flutter pub get
+
+Firebase Setup
+
+1. Create a Firebase Project:
+   -> Go to the Firebase Console.
+   -> Click on "Add project" and follow the setup steps.
+   
+2. Add Android App:
+   -> In the Firebase Console, navigate to "Project settings" and click on the Android icon to add an app.
+   -> Register your app with the package name (e.g., com.example.mcq_quiz_app).
+   -> Download the google-services.json file and place it in the android/app directory.
+   
+3. Add iOS App:
+   -> Navigate to the iOS setup in Firebase Console.
+   -> Register your app with the iOS bundle ID (e.g., com.example.mcqQuizApp).
+   -> Download the GoogleService-Info.plist file and place it in the ios/Runner directory.
+
+4. Configure Firebase in Flutter:
+   -> Add Firebase dependencies in your pubspec.yaml file:
+          dependencies:
+            firebase_core: latest_version
+            cloud_firestore: latest_version
+   -> Initialize Firebase in main.dart:
+      void main() async {
+        WidgetsFlutterBinding.ensureInitialized();
+        await Firebase.initializeApp();
+        runApp(const MyApp());
+      }
+
+
+Run the App
+    -> flutter run
+
+Features and Functionalities
+
+1. Add MCQs
+    -> Allows users to add new multiple-choice questions with options and the correct answer.
+2. Edit MCQs
+    -> Enables users to edit existing MCQs and update the question, options, and correct answer.
+3. Quiz Mode
+    -> Users can take the quiz, with a timer for each question.
+    -> Tracks and displays the user's score at the end of the quiz.
+
+Additional Functionalities
+
+1. Real-time Data Sync
+    -> Uses Firebase Firestore for real-time data synchronization.
+2. Responsive UI
+    -> Ensures a user-friendly experience on different device sizes.
+
+Firebase Integration Details
+Firestore Structure
+    -> Collection: 'mcqs'
+       -> Document ID: Auto-generated
+          -> Fields:
+             -> 'question' : string
+             -> 'options' : Array of Strings
+             -> 'correctAnswerIndex' : Integer
+
+Firestore Queries
+-> Fetch MCQs
+   -> FirebaseFirestore.instance.collection('mcqs').snapshots();
+   
+-> Add MCQs
+   -> FirebaseFirestore.instance.collection('mcqs').add({
+        'question': question,
+        'options': options,
+        'correctAnswerIndex': correctAnswerIndex,
+      });
+
+-> Update MCQs
+   -> FirebaseFirestore.instance.collection('mcqs').doc(mcqId).update({
+       'question': updatedQuestion,
+       'options': updatedOptions,
+       'correctAnswerIndex': updatedCorrectAnswerIndex,
+      });
+
+Screens and Navigation Flow
+-> Home Screen
+   -> Navigation Options
+      -> Add MCQs
+      -> Edit MCQs
+      -> Start Quiz
+
+-> Add MCQs Screen
+   -> Form Fields
+      -> Question
+      -> Options (Dynamic List)
+      -> Correct Answer Index
+
+-> Edit MCQs Screen
+   -> Form Fields (Pre-filled):
+      -> Question
+      -> Options (Dynamic List)
+      -> Correct Answer Index
+
+-> Quiz Screen
+   -> Displays:
+      -> Timer
+      -> Question 
+      -> Options (Radio Buttons)
+      -> Next Question Button
+
+-> Result Screen
+   -> Displays:
+      -> User Score
+      -> Total Questions
+      -> Retake Quiz Button
+      -> Go to Home Button
+
+Navigation Flow
+-> Home Screen
+   -> To AddMCQFormScreen
+   -> To EditMCQFormScreen
+   -> To QuizScreen
+
+-> Quiz Screen
+   -> To ResultScreen
+
+Troubleshooting and FAQs
+Common Issues
+1. Firebase Initialization Error:
+   -> Ensure 'google-services.json' is in the correct directory ('android/app').
+   -> Ensure 'GoogleService-Info.plist' is in the correct directory ('ios/Runner').
+   -> Check your internet connection.
+
+2. Firestore Permissions:
+   -> Ensure Firestore rules allow read and write access during development:
+      -> service cloud.firestore {
+           match /databases/{database}/documents {
+             match /{document=**} {
+               allow read, write: if true;
+             }
+           }
+        }
+
+
+*/
