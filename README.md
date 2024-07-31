@@ -1,16 +1,101 @@
-# mcq_quiz
 
-A new Flutter project.
+# MCQ Quiz App
 
-## Getting Started
+The MCQ Quiz App is an interactive platform for creating and managing multiple-choice quizzes. Developed using Flutter and Firebase, the app offers seamless backend integration with Firebase Firestore to store and retrieve quiz questions. Key features include a timed quiz interface, real-time score tracking, and dynamic question navigation. Users can participate in quizzes, receive immediate feedback on their performance, and view their final scores on a dedicated result screen. The app provides a user-friendly experience with a clean design, making it suitable for both educational and entertainment purposes.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. MCQ Management:
+
+-> Add MCQs:
+Users can add new multiple-choice questions.
+Input fields for the question, multiple    options, and the correct answer index.
+
+-> Edit MCQs:
+Users can edit existing questions and their respective options.
+
+-> Delete MCQs:
+Users can delete questions from the database.
+
+2. Quiz Mode:
+
+-> Dynamic Question Display:
+Fetches questions from Firebase Firestore and displays them one by one.
+
+-> Timer:
+Each question has a countdown timer (e.g., 60 seconds) to add a sense of urgency.
+
+-> Answer Selection:
+Users can select an answer from multiple options.
+
+-> Score Calculation:
+Keeps track of the user’s score based on the correctness of their answers.
+
+-> Automatic Next Question:
+Automatically moves to the next question when the timer runs out or when the user submits an answer.
+
+-> End Quiz:
+Automatically ends the quiz when all questions have been answered or the timer runs out.
+
+3. Result Screen:
+
+-> Score Display:
+Displays the user's score and the total number of questions.
+
+-> Retake Quiz:
+Provides an option to retake the quiz.
+
+-> Go to Home:
+Allows users to navigate back to the home screen.
+
+4. Additional Functionalities
+-> 
+Real-time Data Sync:
+Uses Firebase Firestore for real-time data synchronization, ensuring that all users see the most up-to-date questions and options.
+
+-> User-Friendly Interface:
+Designed with a clean and intuitive interface for easy navigation and interaction.
+
+-> Responsive Design:
+Ensures a seamless experience across different device sizes and orientations.
+
+5. Advanced Features
+-> Progress Tracking:
+Visual indicators for the current question and progress through the quiz.
+
+-> Error Handling:
+Handles various error scenarios like network issues or Firestore read/write failures gracefully.
+
+-> Authentication (Optional):
+Firebase Authentication for user login and personalized quiz history (if implemented).
+
+
+
+## Screenshots
+
+![App Screenshot](https://drive.google.com/file/d/1G3wMiJRTDi49mm-E1YcnIb_wJw-YFzle/view?usp=drive_link)
+
+![App Screenshot](https://drive.google.com/file/d/1PzmHy3muwXrQ6tlcDSsB9mhvvX89otzk/view?usp=drive_link)
+
+![App Screenshot](https://drive.google.com/file/d/1CCeyPWxsZ8yJXugm_bVhkxbc3oyjfP-B/view?usp=drive_link)
+
+![App Screenshot](https://drive.google.com/file/d/1xmY-uEP2Rv3H11w3kpC07qwACBu9LORz/view?usp=drive_link)
+
+![App Screenshot](https://drive.google.com/file/d/11wMvL2u589bpj8A8NKqyWGr26QizwrsV/view?usp=drive_link)
+
+![App Screenshot](https://drive.google.com/file/d/1Zs3neAtcreD3_QNB3qyBEMupBqbwhz9o/view?usp=drive_link)
+
+
+
+
+## Tech Stack
+
+**Front-End:** Dart, Flutter
+
+**Server:** Firebase
+
+**Database:** Firestore
+
